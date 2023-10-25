@@ -7,10 +7,13 @@ vim.keymap.set("x", "<leader>P", "\"0P")
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("v", "<leader>Y", "\"+Y")
 
 --buffer clipboard
 vim.keymap.set("n", "<leader>bp", "\"+p")
-vim.keymap.set("n", "<leader>bP", "\"+P")
+vim.keymap.set("n", "<leader>bp", "\"+p")
+vim.keymap.set("v", "<leader>bP", "\"+P")
+vim.keymap.set("v", "<leader>bP", "\"+P")
 
 
 vim.keymap.set("n", "<leader>d", "\"+d")

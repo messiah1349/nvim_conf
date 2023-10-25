@@ -18,6 +18,9 @@ return require('packer').startup(function(use)
     }
 
     use "NLKNguyen/papercolor-theme"
+
+    use { "catppuccin/nvim", as = "catppuccin" }
+
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
     use {
@@ -28,6 +31,13 @@ return require('packer').startup(function(use)
             "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
             "MunifTanjim/nui.nvim",
         }
+    }
+    use {
+        's1n7ax/nvim-window-picker',
+        tag = 'v2.*',
+        config = function()
+            require'window-picker'.setup()
+        end,
     }
 
     -- -- autocompletion

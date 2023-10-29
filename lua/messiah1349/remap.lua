@@ -26,5 +26,12 @@ vim.keymap.set("n", "<leader>j", "<C-w>j")
 vim.keymap.set("n", "<leader>k", "<C-w>k")
 vim.keymap.set("n", "<leader>l", "<C-w>l")
 
-vim.keymap.set("n", "<leader>,", "<C-w><")
-vim.keymap.set("n", "<leader>.", "<C-w>>")
+-- window size
+vim.keymap.set("n", "<leader>,", "10<C-w><")
+vim.keymap.set("n", "<leader>.", "10<C-w>>")
+vim.keymap.set("n", [[<leader>-]], "5<C-w>-")
+vim.keymap.set("n", "<leader>=", "5<C-w>+")
+
+-- terminal
+vim.keymap.set("t", "jj", [[<C-\><C-n>]])
+

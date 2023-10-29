@@ -1,7 +1,9 @@
 vim.keymap.set("n", "<leader>n", '<Cmd>Neotree toggle<CR>')
 vim.keymap.set("n", "<leader>o", '<Cmd>Neotree focus<CR>')
+vim.keymap.set("n", "<leader>g", '<Cmd>Neotree git_status<CR>')
 
 require('neo-tree').setup {
+    close_if_last_window = true,
     filesystem = {
         filtered_items = {
             visible = true, -- This is what you want: If you set this to `true`, all "hide" just mean "dimmed out"

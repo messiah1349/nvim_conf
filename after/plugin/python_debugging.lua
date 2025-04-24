@@ -1,0 +1,15 @@
+local dap = require("dap")
+local dapui = require("dapui")
+
+vim.keymap.set("n", "<Leader>dc", dap.continue)
+vim.keymap.set("n", "<Leader>dso", dap.step_over)
+vim.keymap.set("n", "<Leader>dsi", dap.step_into)
+vim.keymap.set("n", "<Leader>dsu", dap.step_out)
+vim.keymap.set("n", "<Leader>db", dap.toggle_breakpoint)
+vim.keymap.set("n", "<Leader>dB", function()
+  dap.set_breakpoint(vim.fn.input('Breakpoint condition: '))
+end)
+vim.keymap.set("n", "<Leader>dut", dapui.toggle)
+
+vim.keymap.set("n", "<Leader>duo", dapui.open)
+vim.keymap.set("n", "<Leader>duc", dapui.close)

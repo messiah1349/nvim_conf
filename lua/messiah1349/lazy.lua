@@ -1,20 +1,21 @@
 local plugins = {
     -- Packer can manage itself
-     'wbthomason/packer.nvim',
+    'wbthomason/packer.nvim',
 
-     "williamboman/mason.nvim",
+    "williamboman/mason.nvim",
 
-     "neovim/nvim-lspconfig",
+    "neovim/nvim-lspconfig",
 
-     {
-        'nvim-telescope/telescope.nvim', tag = '0.1.4',
+    {
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.4',
         -- or                            , branch = '0.1.x',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
 
-    { "catppuccin/nvim", as = "catppuccin" },
+    { "catppuccin/nvim",                 as = "catppuccin" },
 
-    {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+    { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
     {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
@@ -30,10 +31,15 @@ local plugins = {
         event = 'VeryLazy',
         version = 'v2.*',
         config = function()
-            require'window-picker'.setup()
+            require 'window-picker'.setup()
         end,
     },
-
+    {
+      "windwp/nvim-autopairs",
+      config = function()
+        require("nvim-autopairs").setup()
+      end,
+    },
     -- -- autocompletion
     "hrsh7th/nvim-cmp",   -- completion plugin
     "hrsh7th/cmp-nvim-lsp",
@@ -47,8 +53,35 @@ local plugins = {
 
     -- comment
     'numToStr/Comment.nvim',
+
+    -- DAP (Debug Adapter Protocol) setup
+    {
+      "mfussenegger/nvim-dap",
+    },
+    {
+      "rcarriga/nvim-dap-ui",
+      dependencies = {
+          "mfussenegger/nvim-dap",
+          "nvim-neotest/nvim-nio",
+      },
+      config = function()
+        require("dapui").setup()
+      end,
+    },
+    {
+      "mfussenegger/nvim-dap-python",
+      dependencies = { "mfussenegger/nvim-dap" },
+      config = function()
+      --   local path = "~/.virtualenvs/debugpy/bin/python" -- change this to your python path
+        require('dap-python').setup("python3")
+      end,
+    },
+    {
+      "theHamsta/nvim-dap-virtual-text",
+      config = function()
+        require("nvim-dap-virtual-text").setup()
+      end,
+    },
 }
 
 require("lazy").setup(plugins)
-
-
